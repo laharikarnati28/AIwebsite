@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 Explainable AI Reasoning Engine | Graph Search & Decision Making</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Explainable AI Reasoning Engine</h1>
+            <p>8 algorithms — each step explained, each decision justified. Live graph & reasoning trace.</p>
+        </header>
+
+        <div class="dashboard">
+            <!-- Graph Panel -->
+            <div class="graph-card">
+                <h2>📊 Search Space Graph</h2>
+                <canvas id="graphCanvas" width="600" height="400"></canvas>
+                <div class="legend">
+                    <span class="legend-start">● Start (A)</span>
+                    <span class="legend-goal">● Goal (F)</span>
+                    <span class="legend-blocked">● Blocked (C)</span>
+                    <span class="legend-normal">● Normal node</span>
+                    <span class="legend-path">● Selected path</span>
+                </div>
+                <div class="graph-meta">
+                    <strong>⚡ Environment</strong><br>
+                    Nodes: A, B, C(🚫), D, E, F &nbsp;|&nbsp; Edge costs: shown on graph<br>
+                    🧭 Heuristics: A:7, B:5, C:100, D:3, E:1, F:0<br>
+                    🛡️ Safety probabilities: B:0.90, C:0.20, D:0.80, E:0.85, F:0.95<br>
+                    🔒 Constraint: Max cost ≤ 15 & blocked nodes avoided
+                </div>
+            </div>
+
+            <!-- Algorithm Panel -->
+            <div class="reasoning-card">
+                <div class="tab-bar" id="tabBar">
+                    <button class="tab-btn active" data-algo="dfs">1️⃣ DFS</button>
+                    <button class="tab-btn" data-algo="bfs">2️⃣ BFS</button>
+                    <button class="tab-btn" data-algo="ucs">3️⃣ UCS</button>
+                    <button class="tab-btn" data-algo="astar">4️⃣ A*</button>
+                    <button class="tab-btn" data-algo="constraint">5️⃣ Constraint</button>
+                    <button class="tab-btn" data-algo="minimax">6️⃣ Minimax</button>
+                    <button class="tab-btn" data-algo="probabilistic">7️⃣ Probabilistic</button>
+                    <button class="tab-btn" data-algo="hybrid">8️⃣ Hybrid A*</button>
+                </div>
+                <div class="log-header">
+                    <h3>📜 Reasoning Trace</h3>
+                    <button id="clearLogsBtn" class="clear-btn">Clear logs</button>
+                </div>
+                <div id="logContainer" class="log-window">
+                    <div class="log-line">✨ Click any algorithm to see step‑by‑step AI reasoning</div>
+                </div>
+                <div class="path-footer">
+                    <span>🏁 FINAL PATH → </span>
+                    <div id="finalPathDisplay" class="final-path-value">—</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
